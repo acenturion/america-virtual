@@ -1,0 +1,19 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-sm col-xs-12 mb-3" *ngFor="let p of products | paginate: config">
+    <div id="product-{{p.id}}" class="card h-100" style="width: 18rem;">
+      <img src="{{p.img}}" class="card-img-top" alt="product list a">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{p.title}}</h5>
+        <p class="justify-content-center">
+          <!-- <ion-icon name="card-outline"></ion-icon> -->
+          <span class="price"> desde ${{p.price}}</span>
+        </p>
+        <p class="card-text">{{p.desc}}</p>
+        <a href="#" class="btn btn-primary mt-auto">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pagination-controls class="row mt-4 d-flex justify-content-center" (pageChange)="pageChanged($event)">
+</pagination-controls>

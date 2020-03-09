@@ -1,0 +1,62 @@
+<p>contratar un servicio > desarrollo webapp ecommerce</p>
+<div class="row mb-5">
+  <div class="col-sm d-flex justify-content-center">
+    <img src="../../assets/product-a.jpg" alt="product one in main view" height="500">
+  </div>
+  <div class="col-sm">
+    <h2>Servicio Dev: Webapp ecommerce</h2>
+    <p class="price">$18.199</p>
+
+    <form [formGroup]="formProduct" (ngSubmit)="onSubmit($event)">
+      <input type="hidden" value="1" formControlName="id">
+
+      <div class="form-group">
+        <label>Opciones de compra</label>
+        <select class="form-control" formControlName="method">
+          <option>Tarjeta</option>
+          <option>Efectivo</option>
+          <option>Pago facil</option>
+          <option>Transferencia bancaria</option>
+        </select>
+      </div>
+      <!--  -->
+      <div class="formProduct mb-3">
+        <label>Unidades</label>
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button type="button" (click)="minus()" class="btn btn-secondary btn-number">
+              -
+            </button>
+          </span>
+          <input type="text" class="form-control input-number" value="{{qty}}" min="1" max="10" formControlName="qty">
+          <span class="input-group-btn">
+            <button type="button" (click)="plus()" class="btn btn-secondary btn-number">
+              +
+            </button>
+          </span>
+        </div>
+      </div>
+      <!--  -->
+      <button type="submit" class="btn btn-primary mb-3">
+        <span *ngIf="!loading">Comprar desarrollo</span>
+        <div *ngIf="loading" class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </button>
+    </form>
+
+
+    <h4>Que incluye:</h4>
+    <ul>
+      <li>
+        <ion-icon name="checkmark-outline"></ion-icon>Analisis de requerimientos
+      </li>
+      <li>
+        <ion-icon name="checkmark-outline"></ion-icon>Diseño de las interafaces Desktop y Mobile
+      </li>
+      <li>
+        <ion-icon name="checkmark-outline"></ion-icon>Desarollo Frontend y Backend
+      </li>
+    </ul>
+  </div>
+</div>
